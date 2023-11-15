@@ -38,6 +38,32 @@ void LL_append(LinkedList_t *list, void *data)
     }
 }
 
+void LL_pop(LinkedList_t *list)
+{
+    if (list->head == NULL)
+    {
+        return;
+    }
+    Node_t *current = list->head;
+    Node_t *penultimate = NULL;
+    while (current->next != NULL)
+    {
+        penultimate = current;
+        current = current->next;
+    }
+    if (penultimate == NULL)
+    {
+        free(list->head->data);
+        free(list->head);
+        list->head = NULL;
+    }
+    else
+    {
+        free(current);
+        penultimate->next = NULL;
+    }
+}
+
 void LL_print(LinkedList_t *list, void (*printFn)(void *))
 {
     Node_t *current = list->head;

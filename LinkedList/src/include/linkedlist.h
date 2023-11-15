@@ -34,6 +34,19 @@ LinkedList_t LL_Init();
 void LL_append(LinkedList_t *list, void *data);
 
 /**
+ * @brief Removes the last node from the list
+ *
+ * Removes the last node and frees the memory it was using, does NOT free the memory for the data.
+ *
+ * The library expects user to keep track of their memory.
+ *
+ * @param list LinkedList_t to remove from
+ *
+ * @return void
+ */
+void LL_pop(LinkedList_t *list);
+
+/**
  * @brief Prints every node in the list, starting at the head.
  *
  * @param list The LinkedList_t to print
@@ -44,7 +57,9 @@ void LL_append(LinkedList_t *list, void *data);
 void LL_print(LinkedList_t *list, void (*printFn)(void *));
 
 /**
- * @brief Free the entire LinkedList_t
+ * @brief Free every node in the LinkedList_t
+ *
+ * Users are responsible for the data they store in the list and must free it themselves to prevent leaks
  *
  * @param list The list to be freed
  *
