@@ -1,6 +1,6 @@
 SHELL = /bin/sh
 CC = gcc
-CFLAGS = -O3 -Wall -I$(SRCDIR)/include
+CFLAGS = -g -O3 -Wall -I$(SRCDIR)/include
 SRCDIR = ./src
 BUILDDIR = build
 BINDIR = bin

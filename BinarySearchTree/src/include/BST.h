@@ -38,9 +38,26 @@ typedef struct BST
 
 } BST_t;
 
-BST_t *BST_Init();
-void BST_insert(BST_t bst, void *data);
-bool BST_contains(BST_t bst, void *data);
-void BST_print(BST_t bst);
+/**
+ * @brief Initialize the BST struct
+ *
+ * Initializes BST struct with a root node value of NULL (will be replaced with first insertion)
+ *
+ * @param dataComparator Function pointer to users data comparison function
+ *
+ * @return BST_t
+ */
+BST_t BST_Init(int8_t (*dataComparator)(void *, void *));
+void BST_insert(BST_t *bst, void *data);
+bool BST_contains(BST_t *bst, void *data);
+/**
+ * @brief Prints the BST in nondecreasing order
+ *
+ * @param bst BST to print
+ * @param printFn Function pointer to a function that handles / prints the users data type
+ *
+ */
+void BST_print(BST_t *bst, void (*printFn)(void *data));
+void BST_free(BST_t *bst);
 
 #endif // BST_H
