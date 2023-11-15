@@ -7,3 +7,8 @@ int dataComparator(void *a, void *b)
     int iA = *(int *)a;
     int iB = *(int *)b;
 }
+
+int main()
+{
+    return 0;
+}
